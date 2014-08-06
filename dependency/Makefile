@@ -3,7 +3,8 @@
 all:	youtube-dl v4l2loopback skype4py
 
 youtube-dl:
-	sudo wget --no-check-certificate https://yt-dl.org/downloads/2014.03.21.5/youtube-dl -O ./youtube-dl; sudo chmod a+x ./youtube-dl	
+	sudo apt-get install youtube-dl
+#	sudo wget --no-check-certificate https://yt-dl.org/downloads/2014.03.21.5/youtube-dl -O ./youtube-dl; sudo chmod a+x ./youtube-dl	
 
 v4l2loopback:	
 	sudo apt-get install git v4l-utils;
