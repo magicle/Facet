@@ -1,4 +1,15 @@
-how to install the dependency:
+To install the dependency:
 
 make all
-make install
+
+
+the dependency includes:
+
+Skype4py: a multiplatform Skype API wrapper for Python
+v4l2loopback: a kernel module to create V4L2 loopback devices
+Gstreamer: a pipeline-based multimedia framework
+youtube-dl: command-line program to download videos
+Facet repository includes a installer for these projects. 
+
+
+
