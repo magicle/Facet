@@ -673,8 +673,10 @@ uninstall-am:
 
 
 start:
-	  python src/PullMessage.py &
-		python src/EmailService.py &
+	cd src/;\
+	python PullMessage.py& 
+	cd src/;\
+	python EmailService.py&
 
 # Tell versions [3.59,3.63) of GNU make to not export all variables.
 # Otherwise a system limit (for SysV at least) may be exceeded.

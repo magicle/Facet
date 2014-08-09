@@ -101,11 +101,11 @@ distuninstallcheck_listfiles = find . -type f -print
 am__distuninstallcheck_listfiles = $(distuninstallcheck_listfiles) \
   | sed 's|^\./|$(prefix)/|' | grep -v '$(infodir)/dir$$'
 distcleancheck_listfiles = find . -type f -print
-ACLOCAL = ${SHELL} /home/shuai/temp/Facet/missing --run aclocal-1.11
+ACLOCAL = ${SHELL} /home/shuai/Facet/missing --run aclocal-1.11
 AMTAR = $${TAR-tar}
-AUTOCONF = ${SHELL} /home/shuai/temp/Facet/missing --run autoconf
-AUTOHEADER = ${SHELL} /home/shuai/temp/Facet/missing --run autoheader
-AUTOMAKE = ${SHELL} /home/shuai/temp/Facet/missing --run automake-1.11
+AUTOCONF = ${SHELL} /home/shuai/Facet/missing --run autoconf
+AUTOHEADER = ${SHELL} /home/shuai/Facet/missing --run autoheader
+AUTOMAKE = ${SHELL} /home/shuai/Facet/missing --run automake-1.11
 AWK = mawk
 CYGPATH_W = echo
 DEFS = -DPACKAGE_NAME=\"Facet\" -DPACKAGE_TARNAME=\"facet\" -DPACKAGE_VERSION=\"0.1\" -DPACKAGE_STRING=\"Facet\ 0.1\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"facet\" -DVERSION=\"0.1\"
@@ -121,7 +121,7 @@ INSTALL_STRIP_PROGRAM = $(install_sh) -c -s
 LIBOBJS = 
 LIBS = 
 LTLIBOBJS = 
-MAKEINFO = ${SHELL} /home/shuai/temp/Facet/missing --run makeinfo
+MAKEINFO = ${SHELL} /home/shuai/Facet/missing --run makeinfo
 MKDIR_P = /bin/mkdir -p
 PACKAGE = facet
 PACKAGE_BUGREPORT = 
@@ -142,10 +142,10 @@ STRIP =
 V4L_CHECK = yes
 VERSION = 0.1
 YOUTUBE_CHECK = yes
-abs_builddir = /home/shuai/temp/Facet
-abs_srcdir = /home/shuai/temp/Facet
-abs_top_builddir = /home/shuai/temp/Facet
-abs_top_srcdir = /home/shuai/temp/Facet
+abs_builddir = /home/shuai/Facet
+abs_srcdir = /home/shuai/Facet
+abs_top_builddir = /home/shuai/Facet
+abs_top_srcdir = /home/shuai/Facet
 am__leading_dot = .
 am__tar = $${TAR-tar} chof - "$$tardir"
 am__untar = $${TAR-tar} xf -
@@ -161,7 +161,7 @@ host_alias =
 htmldir = ${docdir}
 includedir = ${prefix}/include
 infodir = ${datarootdir}/info
-install_sh = ${SHELL} /home/shuai/temp/Facet/install-sh
+install_sh = ${SHELL} /home/shuai/Facet/install-sh
 libdir = ${exec_prefix}/lib
 libexecdir = ${exec_prefix}/libexec
 localedir = ${datarootdir}/locale
@@ -673,8 +673,10 @@ uninstall-am:
 
 
 start:
-	  python src/PullMessage.py &
-		python src/EmailService.py &
+	cd src/;\
+	python PullMessage.py& 
+	cd src/;\
+	python EmailService.py&
 
 # Tell versions [3.59,3.63) of GNU make to not export all variables.
 # Otherwise a system limit (for SysV at least) may be exceeded.

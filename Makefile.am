@@ -1,5 +1,7 @@
 SUBDIRS = src
 
 start:
-	  python src/PullMessage.py &
-		python src/EmailService.py &
+	cd src/;\
+	python PullMessage.py& 
+	cd src/;\
+	python EmailService.py&
