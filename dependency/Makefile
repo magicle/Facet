@@ -13,7 +13,7 @@ v4l2loopback:
 	sudo make; \
 	sudo make install; \
 	sudo modprobe v4l2loopback video_nr=4; \
-	cd utils \
+	cd utils; \
 	sudo cp v4l2loopback-ctl /usr/local/bin/
 
 
@@ -24,12 +24,15 @@ search:
 	sudo ln -s /usr/local/share/phantomjs-1.9.7-linux-i686/bin/phantomjs /usr/local/share/phantomjs;
 	sudo ln -s /usr/local/share/phantomjs-1.9.7-linux-i686/bin/phantomjs /usr/local/bin/phantomjs
 	sudo ln -s /usr/local/share/phantomjs-1.9.7-linux-i686/bin/phantomjs /usr/bin/phantomjs
+
 skype4py: 
 	git clone https://github.com/awahlig/skype4py.git;
 	sudo apt-get install python-setuptools
 	cd skype4py; \
 	sudo python setup.py build; \
 	sudo python setup.py install; 
+
 install:
 	sudo apt-get install gstreamer0.10-ffmpeg
-	./install.sh timeout.png /dev/video4
+
+##	./install.sh timeout.png /dev/video4
