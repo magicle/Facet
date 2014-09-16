@@ -1,7 +1,7 @@
 To install the dependency:
 
 make all
-
+make install
 
 the dependency includes:
 
