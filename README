@@ -1,4 +1,41 @@
-change log:
+What is Facet?
 
-1. add functionality of receiving address by instant message
-2. delete social networking extention facility for simplicity.
+Facet is an unobservable transport for social video sites. Facet evades detection by Internet censors by streaming social videos over Skype calls, and applying a novel traffic-analysis countermeasure called video morphing.
+
+How to use as a client?
+1. Add Skype ID of the Facet server into your contact.
+2. Send video URLs to the Facet server by Skype messages (or by email).
+3. Accept the video call request. 
+
+
+How to install and run a Facet server?
+
+1. Download Facet 1.0.0
+git clone https://github.com/magicle/Facet.git
+
+2. Prerequisite:
+(a) Linux operating system, Facet implementation is tested on Ubuntu 12.04
+(b) Skype installed with a valid Skype user account
+(c) Acknowledgement: Facet server is based on the following open source projects:
+
+Skype4py: a multiplatform Skype API wrapper for Python
+v4l2loopback: a kernel module to create V4L2 loopback devices
+Gstreamer: a pipeline-based multimedia framework
+youtube-dl: command-line program to download videos
+Facet repository includes a installer for these projects. 
+
+The "dependency" folder in Facet repository includes a facility to install these required programs.
+
+3. Install by run the following commands:
+
+./configure
+make
+make install
+
+4. run the server side script:
+
+cd ./src/
+python PullMessage.py &		## Skype API
+python EmailService.py &	## Extract info by Email
+
+
