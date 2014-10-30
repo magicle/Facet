@@ -30,7 +30,7 @@ def Branch(mail):
         return 1
     elif mail["Subject"] == "myemail":
         MyemailHandle(mail)
-    elif mail["Subject"] == "add":
+    elif mail["Subject"] == "register":
         AddHandle(mail)
         return 0
 
