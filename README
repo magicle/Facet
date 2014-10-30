@@ -39,3 +39,11 @@ python PullMessage.py &		## Skype API
 python EmailService.py &	## Extract info by Email
 
 
+5. Skype configuration
+at Skype Options: video device is configured to be the v4l2loopback device
+at PulseAudio Volume Control: the recording of Skype is configured from created microphone emulator.
+
+
+
+
+
