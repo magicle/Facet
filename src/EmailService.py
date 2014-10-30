@@ -48,14 +48,26 @@ def VideoSearch(mail):
 
 def AddHandle(mail):
     f = open("AddFriend", "r+")
+    ec = open("EmailCheck", "r+")
     old = f.read()
     f.seek(0)
+    
+    old_ec = ec.read()
+    ec.seek(0)
+
     left = mail["From"].index("<")+1
     right = mail["From"].index(">")
+    
+    # format: email + skype name
     package = mail["From"][left:right] + " " + BodyOneLine(mail) + "\n"
     f.write(package + old)
     f.truncate()
     f.close()
+
+    ec.write(package + old_ec)
+    ec.truncate()
+    ec.close()
+
     MailBack(mail["From"][left:right], BodyOneLine(mail) + "has been allowed to join the service! Please let him add server into his contact list!", "Adding friend succeeds!")
 
 def MyemailHandle(mail):
@@ -78,11 +90,11 @@ def EmailCheck(mail):
     right = mail["From"].index(">")
     source = mail["From"][left + 1:right]
 
-    f= open("EmailCheck","r")
+    f = open("EmailCheck","r")
     lines = f.readlines()
     for line in lines:
         if source in line:
-            return line.split(" ")[0]
+            return line.split(" ")[1].strip("\n")
     return 0
 
 
@@ -97,15 +109,16 @@ def UrlHandle(mail):
     else:
         MailBack(mail["From"], "Wrong!", "Please Register!")
 
-def BodyOneLine (msg):
-    maintype = msg.get_content_maintype()
-    if maintype == 'multipart':
-        for index, part in enumerate(msg.walk()):
-          if index == 1:
-            return part.get_payload().split("\n")[0]
+def BodyOneLine (msg):  
+  maintype = msg.get_content_maintype()
+  if maintype == 'multipart':
+    for index, part in enumerate(msg.walk()):
+      if index == 1:
+        result = part.get_payload().split("\n")[0]
 
-    elif maintype == 'text':
-        return msg.get_payload().split("\n",1)[0]
+  elif maintype == 'text':
+    result =  msg.get_payload().split("\n",1)[0]
+  return result.strip("\n\r")
 
 
 
