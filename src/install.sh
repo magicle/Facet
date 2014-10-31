@@ -2,7 +2,7 @@
 
 v4l2-ctl -d $2 -c timeout=1000
 
-v4l2loopback-ctl set-caps "video/x-raw-yuv,format=(fourcc)YUY2, width=320,     height=240" $2
+v4l2loopback-ctl set-caps "video/x-raw-yuv,format=(fourcc)YUY2, width=640,height=480" $2
 
 v4l2loopback-ctl set-timeout-image $1 $2
 
