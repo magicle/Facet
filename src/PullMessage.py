@@ -115,7 +115,7 @@ def CallHandle(Call, status):
 
 
 def GetVurl(url):
-    proc = subprocess.Popen(["youtube-dl", "-g", "-f", "36", url], stdout=subprocess.PIPE)
+    proc = subprocess.Popen(["youtube-dl", "-g", "-f", "22", url], stdout=subprocess.PIPE)
     proc.wait()
     vaddr = proc.stdout.readlines()
     if not vaddr:
